@@ -2,7 +2,6 @@
 
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
-// import SendIcon from '@mui/icons-material/Send';
 import { useState } from 'react';
 import { Button } from '@mui/material';
 
@@ -30,9 +29,9 @@ export default function ChatInput({
     }
 
     return (
-        <Stack direction={'row'} spacing={1} alignItems='center'>
+        <Stack direction={'row'} spacing={2} alignItems='center'>
             <TextField 
-                label="Ask about professor..." 
+                label="Type your message..." 
                 fullWidth 
                 variant="outlined"
                 size="small"
@@ -40,62 +39,64 @@ export default function ChatInput({
                 onChange={(e) => setMessage(e.target.value)} 
                 onKeyDown={handleKeyDown}
                 sx={{
-                    borderRadius: 20,
+                    borderRadius: '25px',
                     '& .MuiOutlinedInput-root': {
-                        borderRadius: 20,
-                        backgroundColor: '#f0f0f0',
+                        borderRadius: '25px',
+                        backgroundColor: '#ffffff', // Light background for the input
                         '& fieldset': {
-                            borderColor: '#d0d0d0',
+                            borderColor: '#cccccc', // Light gray border
                         },
                         '&:hover fieldset': {
-                            borderColor: '#3f51b5',
+                            borderColor: '#009688', // Teal border on hover
                             borderWidth: 2,
                         },
                         '&.Mui-focused fieldset': {
-                            borderColor: '#3f51b5',
+                            borderColor: '#009688', // Teal border when focused
                             borderWidth: 2,
                         },
                     },
                     '& .MuiInputLabel-root': {
-                        color: '#888',
+                        color: '#666', // Darker gray label
                         transition: 'color 0.3s',
                     },
                     '& .MuiInputLabel-root.Mui-focused': {
-                        color: '#3f51b5',
+                        color: '#009688', // Teal label when focused
                     },
                     '& .MuiInputBase-input': {
+                        color: '#333', // Dark text color
                         transition: 'color 0.3s',
                     },
                     '&:hover .MuiInputBase-input': {
-                        color: '#333',
+                        color: '#000', // Darker text color on hover
                     },
                     '&:focus-within .MuiInputBase-input': {
-                        color: '#000',
+                        color: '#000', // Darker text color when focused
                     },
                 }}
             />
-            {/* <IconButton 
-                color="primary" 
+            <Button 
+                variant="contained" 
                 onClick={handleSubmit} 
                 disabled={debounce || !message.trim()}
                 sx={{
-                    borderRadius: '50%',
-                    bgcolor: '#3f51b5', 
+                    borderRadius: '25px',
+                    bgcolor: '#009688', // Teal background for the button
                     color: '#fff',
+                    px: 3,
+                    py: 1.5,
                     '&:hover': {
-                        bgcolor: '#303f9f',
-                        transform: 'scale(1.1)',
+                        bgcolor: '#00796b', // Darker teal on hover
+                        transform: 'scale(1.05)',
                         transition: 'transform 0.2s, bgcolor 0.3s',
                     },
                     '&:disabled': {
-                        bgcolor: '#ccc',
+                        bgcolor: '#c2c2c2', // Light gray background for disabled state
                         color: '#888',
                     },
                 }}
             >
-                <SendIcon />
-            </IconButton> */}
-        <Button variant="contained" sx={{ borderRadius: 10 }} onClick={handleSubmit} disabled={debounce || false}>Send</Button>
+                Send
+            </Button>
         </Stack>
     );
 }
